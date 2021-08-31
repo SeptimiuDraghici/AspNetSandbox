@@ -452,3 +452,9 @@ $RECYCLE.BIN/
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
+AspNetSandBox.sln
+.vs/AspNetSandBox/v16/.suo
+.vs/AspNetSandBox/DesignTimeBuild/.dtbcache.v2
+.vs/AspNetSandBox/v16/.suo
+*.v2
+.vs/AspNetSandBox/v16/.suo
