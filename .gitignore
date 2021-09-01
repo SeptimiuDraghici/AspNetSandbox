@@ -458,3 +458,4 @@ AspNetSandBox.sln
 .vs/AspNetSandBox/v16/.suo
 *.v2
 .vs/AspNetSandBox/v16/.suo
+*.dll
