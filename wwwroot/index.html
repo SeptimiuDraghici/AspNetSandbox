@@ -37,16 +37,9 @@
                 </button>
             </div>
             <div class="language">
-                Google offered in:
-                <a href="">
-                    Română
-                </a>
-                <a href="">
-                    Magyar
-                </a>
-                <a href="">
-                    Deutsch
-                </a>
+                <textarea id="weatherForecast">
+                    
+                </textarea>
             </div>
         </div>
     </div>
@@ -85,13 +78,16 @@
     <script src="./lib/jquery/dist/jquery.min.js"></script>
     <script>
         var settings = {
-            "url": "https://localhost:5001/WeatherForecast",
+            "url": "/WeatherForecast",
             "method": "GET",
             "timeout": 0,
         };
 
         $.ajax(settings).done(function (response) {
             console.log(response);
+            //let textArea = document.querySelectorAll('#weatherForecast')
+            //let textArea = document.getElementById('weatherForecast')
+            $('#weatherForecast').val("The weather for tomorrow will be: " + response[0].summary);
         });
     </script>
 </body>
