@@ -50,8 +50,10 @@ namespace AspNetSandBox
                 app.UseHsts();
             }
 
+            var defaultFilesOptions = new DefaultFilesOptions();
+
             app.UseHttpsRedirection();
-            app.UseDefaultFiles();
+            app.UseDefaultFiles(defaultFilesOptions);
             app.UseStaticFiles();
 
             app.UseRouting();
