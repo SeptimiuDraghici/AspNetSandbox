@@ -465,3 +465,8 @@ AspNetSandBox.sln
 *.dll
 .vs/AspNetSandBox/v16/.suo
 .vs/AspNetSandBox/v16/.suo
+*.json
+*.cache
+*.json
+*.suo
+*.dll
