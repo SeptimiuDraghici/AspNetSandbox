@@ -15,16 +15,6 @@ namespace AspNetSandBox.Controllers
     {
         private const float KELVIN_CONSTANT = 273.15f;
 
-        private static readonly string[] Summaries = new[]
-        {
-            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-        };
-
-        public WeatherForecastController()
-        {
-
-        }
-
         [HttpGet]
         public IEnumerable<WeatherForecast> Get()
         {
@@ -35,16 +25,6 @@ namespace AspNetSandBox.Controllers
             Console.WriteLine(response.Content);
 
             return ConvertResponseToWeatherForecast(response.Content);
-
-            //var rng = new Random();
-            //return Enumerable.Range(1, 5).Select(index => new WeatherForecast
-            //{
-            //    Date = DateTime.Now.AddDays(index),
-            //    TemperatureC = rng.Next(-20, 55),
-            //    Summary = Summaries[rng.Next(Summaries.Length)]
-            //})
-            //.ToArray();
-
         }
 
         public IEnumerable<WeatherForecast> ConvertResponseToWeatherForecast(string content, int days = 5)
