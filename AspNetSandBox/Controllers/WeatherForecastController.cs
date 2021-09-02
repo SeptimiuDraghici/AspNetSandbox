@@ -17,11 +17,9 @@ namespace AspNetSandBox.Controllers
             "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
         };
 
-        private readonly ILogger<WeatherForecastController> _logger;
-
-        public WeatherForecastController(ILogger<WeatherForecastController> logger)
+        public WeatherForecastController()
         {
-            _logger = logger;
+
         }
 
         [HttpGet]
@@ -47,7 +45,7 @@ namespace AspNetSandBox.Controllers
             //https://api.openweathermap.org/data/2.5/onecall?lat=46.4760&lon=24.0934&exclude=hourly,minutely&appid=33a7b8b2ffb63bb3514e58a43a77ccf9
         }
 
-        private IEnumerable<WeatherForecast> ConvertResponseToWeatherForecast(string content)
+        public IEnumerable<WeatherForecast> ConvertResponseToWeatherForecast(string content)
         {
             var rng = new Random();
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
