@@ -7,10 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="DataFromCityCoordinatesAPI.json" />
     <None Remove="DataFromOpenWeatherAPI.json" />
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="DataFromCityCoordinatesAPI.json" />
     <EmbeddedResource Include="DataFromOpenWeatherAPI.json" />
   </ItemGroup>
 
