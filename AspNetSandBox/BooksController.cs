@@ -18,7 +18,7 @@ namespace AspNetSandBox
             books = new Book[2];
             books[0] = new Book
             {
-                ID = 0,
+                Id = 0,
                 Title = "Metro 2033",
                 Author = "Dmitry Glukhovsky",
                 Language = "English"
@@ -26,7 +26,7 @@ namespace AspNetSandBox
 
             books[1] = new Book
             {
-                ID = 1,
+                Id = 1,
                 Title = "Metro 2034",
                 Author = "Dmitry Glukhovsky",
                 Language = "English"
@@ -43,12 +43,7 @@ namespace AspNetSandBox
         [HttpGet("{id}")]
         public Book Get(int id)
         {
-            return books.Single(SomeFunction);
-        }
-
-        private bool SomeFunction(Book book)
-        {
-            return book.ID == 1;
+            return books.Single(book => book.Id == id);
         }
 
         // POST api/<BooksController>
