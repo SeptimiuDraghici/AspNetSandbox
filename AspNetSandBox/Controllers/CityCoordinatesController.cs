@@ -13,8 +13,6 @@ namespace AspNetSandBox.Controllers
     [Route("[controller]")]
     public class CityCoordinatesController : ControllerBase
     {
-        private const float KELVIN_CONSTANT = 273.15f;
-
         [HttpGet]
         public IEnumerable<CityCoordinates> Get()
         {
@@ -27,6 +25,7 @@ namespace AspNetSandBox.Controllers
             return ConvertResponseToCityCoordinates(response.Content);
         }
 
+        [NonAction]
         public IEnumerable<CityCoordinates> ConvertResponseToCityCoordinates(string content)
         {
             var json = JObject.Parse(content);
@@ -34,13 +33,11 @@ namespace AspNetSandBox.Controllers
             return Enumerable.Range(0, 3).Select(index =>
             {
                 var jsonCityCoordinates = json["cities"][index]["coord"];
-                var jsonCityLongitude = jsonCityCoordinates.Value<decimal>("lon");
-                var jsonCityLatitude = jsonCityCoordinates.Value<decimal>("lat");
 
                 return new CityCoordinates
                 {
-                    Longitude = jsonCityLongitude,
-                    Latitude = jsonCityLatitude
+                    Longitude = jsonCityCoordinates.Value<decimal>("lon"),
+                    Latitude = jsonCityCoordinates.Value<decimal>("lat")
                 };
             })
             .ToArray();
