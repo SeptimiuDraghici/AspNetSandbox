@@ -29,28 +29,28 @@ namespace AspNetSandBox
         [HttpGet("{id}")]
         public Book Get(int id)
         {
-            return booksService.Get(id);
+            return booksService.GetAllBooks(id);
         }
 
         // POST api/<BooksController>
         [HttpPost]
         public void Post([FromBody] Book value)
         {
-            booksService.Post(value);
+            booksService.AddBookToList(value);
         }
 
         // PUT api/<BooksController>/5
         [HttpPut("{id}")]
         public void Put(int id, [FromBody] Book value)
         {
-            booksService.Put(id, value);
+            booksService.UpdateBookById(id, value);
         }
 
         // DELETE api/<BooksController>/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
-            booksService.Delete(id);
+            booksService.DeleteBookById(id);
         }
     }
 }

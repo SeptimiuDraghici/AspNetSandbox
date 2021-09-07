@@ -34,19 +34,19 @@ namespace AspNetSandBox
             return books;
         }
 
-        public Book Get(int id)
+        public Book GetAllBooks(int id)
         {
             return books.Single(book => book.Id == id);
         }
 
-        public void Post(Book value)
+        public void AddBookToList(Book value)
         {
             int id = books.Count;
             value.Id = id;
             books.Add(value);
         }
 
-        public void Put(int id, Book value)
+        public void UpdateBookById(int id, Book value)
         {
             var newTitle = value.Title;
             var newAuthor = value.Author;
@@ -66,9 +66,9 @@ namespace AspNetSandBox
             }
         }
 
-        public void Delete(int id)
+        public void DeleteBookById(int id)
         {
-            books.Remove(Get(id));
+            books.Remove(GetAllBooks(id));
         }
     }
 }

@@ -18,14 +18,14 @@ namespace AspNetSandBox.Tests
 
             //Act
 
-            bookService.Post(new Book
+            bookService.AddBookToList(new Book
             {
                 Title = "Metro 2035",
                 Author = "Dmitry Glukhovsky",
                 Language = "English"
             });
-            bookService.Delete(2);
-            bookService.Post(new Book
+            bookService.DeleteBookById(2);
+            bookService.AddBookToList(new Book
             {
                 Title = "Shining",
                 Author = "Stephen King",
@@ -34,7 +34,7 @@ namespace AspNetSandBox.Tests
 
             //Assert
 
-            Assert.Equal("Metro 2035", bookService.Get(3).Title);
+            Assert.Equal("Metro 2035", bookService.GetAllBooks(3).Title);
         }
     }
 }
