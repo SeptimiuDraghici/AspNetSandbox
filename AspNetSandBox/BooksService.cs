@@ -46,8 +46,24 @@ namespace AspNetSandBox
             books.Add(value);
         }
 
-        public void Put(int id, string value)
+        public void Put(int id, Book value)
         {
+            var newTitle = value.Title;
+            var newAuthor = value.Author;
+            var newLanguage = value.Language;
+            books[id].Id = id;
+            if (newTitle != null)
+            {
+                books[id].Title = newTitle;
+            }
+            if (newAuthor != null)
+            {
+                books[id].Author = newAuthor;
+            }
+            if (newLanguage != null)
+            {
+                books[id].Language = newLanguage;
+            }
         }
 
         public void Delete(int id)
