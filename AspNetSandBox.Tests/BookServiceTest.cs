@@ -10,7 +10,7 @@ namespace AspNetSandBox.Tests
     public class BookServiceTest
     {
         [Fact]
-        public void ConvertResponseToWeatherForecastTest()
+        public void ShouldCorrectlyIncrementIdOfBookTest()
         {
             //Assume
 
@@ -34,7 +34,36 @@ namespace AspNetSandBox.Tests
 
             //Assert
 
-            Assert.Equal("Metro 2035", bookService.GetAllBooks(3).Title);
+            Assert.Equal("Shining", bookService.GetBookById(3).Title);
+        }
+
+        [Fact]
+        public void ShouldUpdateOnlyChangedFieldsOfBookTest()
+        {
+            //Assume
+
+            var bookService = new BooksService();
+
+            //Act
+
+            bookService.UpdateBookById(1, new Book
+            {
+                Title = "Metro 2035",
+                Author = "Random Author",
+                Language = "English"
+            });
+            bookService.UpdateBookById(0, new Book
+            {
+                Title = "Shining",
+                Author = "Stephen King"
+            });
+
+            //Assert
+
+            Assert.Equal("Random Author", bookService.GetBookById(1).Author);
+            Assert.Equal("Shining", bookService.GetBookById(0).Title);
+            Assert.Equal("Stephen King", bookService.GetBookById(0).Author);
+            Assert.Equal("English", bookService.GetBookById(0).Language);
         }
     }
 }

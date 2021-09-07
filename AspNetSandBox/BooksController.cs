@@ -29,7 +29,7 @@ namespace AspNetSandBox
         [HttpGet("{id}")]
         public Book Get(int id)
         {
-            return booksService.GetAllBooks(id);
+            return booksService.GetBookById(id);
         }
 
         // POST api/<BooksController>

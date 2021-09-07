@@ -6,7 +6,7 @@ namespace AspNetSandBox
     {
         void DeleteBookById(int id);
         IEnumerable<Book> Get();
-        Book GetAllBooks(int id);
+        Book GetBookById(int id);
         void AddBookToList(Book value);
         void UpdateBookById(int id, Book value);
     }

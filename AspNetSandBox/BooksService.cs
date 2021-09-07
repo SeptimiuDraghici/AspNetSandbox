@@ -8,6 +8,7 @@ namespace AspNetSandBox
     public class BooksService : IBooksService
     {
         private List<Book> books;
+        static int bookIdCounter = 1;
 
         public BooksService()
         {
@@ -34,15 +35,15 @@ namespace AspNetSandBox
             return books;
         }
 
-        public Book GetAllBooks(int id)
+        public Book GetBookById(int id)
         {
             return books.Single(book => book.Id == id);
         }
 
         public void AddBookToList(Book value)
         {
-            int id = books.Count;
-            value.Id = id;
+            bookIdCounter++;
+            value.Id = bookIdCounter;
             books.Add(value);
         }
 
@@ -68,7 +69,7 @@ namespace AspNetSandBox
 
         public void DeleteBookById(int id)
         {
-            books.Remove(GetAllBooks(id));
+            books.Remove(GetBookById(id));
         }
     }
 }
