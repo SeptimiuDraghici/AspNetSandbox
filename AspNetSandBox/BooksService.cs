@@ -7,8 +7,8 @@ namespace AspNetSandBox
 {
     public class BooksService : IBooksService
     {
+        private static int bookIdCounter = 1;
         private List<Book> books;
-        static int bookIdCounter = 1;
 
         public BooksService()
         {
@@ -18,7 +18,7 @@ namespace AspNetSandBox
                 Id = 0,
                 Title = "Metro 2033",
                 Author = "Dmitry Glukhovsky",
-                Language = "English"
+                Language = "English",
             });
 
             books.Add(new Book
@@ -26,7 +26,7 @@ namespace AspNetSandBox
                 Id = 1,
                 Title = "Metro 2034",
                 Author = "Dmitry Glukhovsky",
-                Language = "English"
+                Language = "English",
             });
         }
 

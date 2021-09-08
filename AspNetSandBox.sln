@@ -7,7 +7,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspNetSandBox", "AspNetSand
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspNetSandBox.Tests", "AspNetSandBox.Tests\AspNetSandBox.Tests.csproj", "{A36E5B3F-0CD1-4387-8883-03958D87287C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DockerSandbox", "DockerSandbox\DockerSandbox.csproj", "{C7F7EC43-8D96-4547-BC5F-66AD271CA736}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DockerSandbox", "DockerSandbox\DockerSandbox.csproj", "{C7F7EC43-8D96-4547-BC5F-66AD271CA736}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8DDBDE04-425F-421D-BA6B-7F12F6E403B9}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

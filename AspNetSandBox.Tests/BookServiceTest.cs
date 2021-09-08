@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Xunit;
+﻿using Xunit;
 
 namespace AspNetSandBox.Tests
 {
@@ -20,56 +15,52 @@ namespace AspNetSandBox.Tests
         [Fact]
         public void ShouldCorrectlyIncrementIdOfBookTest()
         {
-            //Assume
+            // Assume
 
-            //Act
-
+            // Act
             bookService.AddBookToList(new Book
             {
                 Title = "Metro 2035",
                 Author = "Dmitry Glukhovsky",
-                Language = "English"
+                Language = "English",
             });
             bookService.DeleteBookById(2);
             bookService.AddBookToList(new Book
             {
                 Title = "Shining",
                 Author = "Stephen King",
-                Language = "English"
+                Language = "English",
             });
 
-            //Assert
-
+            // Assert
             Assert.Equal("Shining", bookService.GetBookById(3).Title);
         }
 
         [Fact]
         public void ShouldUpdateOnlyChangedFieldsOfBookTest()
         {
-            //Assume
+            // Assume
 
-            //Act
-
+            // Act
             bookService.AddBookToList(new Book
             {
                 Title = "Metro 2035",
                 Author = "Dmitry Glukhovsky",
-                Language = "English"
+                Language = "English",
             });
             bookService.UpdateBookById(2, new Book
             {
                 Title = "Metro 2035",
                 Author = "Random Author",
-                Language = "English"
+                Language = "English",
             });
             bookService.UpdateBookById(0, new Book
             {
                 Title = "Shining",
-                Author = "Stephen King"
+                Author = "Stephen King",
             });
 
-            //Assert
-
+            // Assert
             Assert.Equal("Random Author", bookService.GetBookById(2).Author);
             Assert.Equal("Shining", bookService.GetBookById(0).Title);
             Assert.Equal("Stephen King", bookService.GetBookById(0).Author);
