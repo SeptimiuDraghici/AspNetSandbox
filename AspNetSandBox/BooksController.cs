@@ -22,7 +22,7 @@ namespace AspNetSandBox
         [HttpGet]
         public IEnumerable<Book> Get()
         {
-            return booksService.Get();
+            return booksService.GetAllBooks();
         }
 
         // GET api/<BooksController>/5
