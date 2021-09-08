@@ -1,0 +1,140 @@
+﻿{
+  "cities": [
+    {
+      "coord": {
+        "lon": -0.1257,
+        "lat": 51.5085
+      },
+      "weather": [
+        {
+          "id": 803,
+          "main": "Clouds",
+          "description": "broken clouds",
+          "icon": "04d"
+        }
+      ],
+      "base": "stations",
+      "main": {
+        "temp": 291.89,
+        "feels_like": 291.46,
+        "temp_min": 289.93,
+        "temp_max": 293.21,
+        "pressure": 1026,
+        "humidity": 63
+      },
+      "visibility": 10000,
+      "wind": {
+        "speed": 6.17,
+        "deg": 80
+      },
+      "clouds": {
+        "all": 75
+      },
+      "dt": 1630603802,
+      "sys": {
+        "type": 2,
+        "id": 2006068,
+        "country": "GB",
+        "sunrise": 1630559700,
+        "sunset": 1630608346
+      },
+      "timezone": 3600,
+      "id": 2643743,
+      "name": "London",
+      "cod": 200
+    },
+    {
+      "coord": {
+        "lon": 25.3333,
+        "lat": 45.75
+      },
+      "weather": [
+        {
+          "id": 801,
+          "main": "Clouds",
+          "description": "few clouds",
+          "icon": "02n"
+        }
+      ],
+      "base": "stations",
+      "main": {
+        "temp": 283.35,
+        "feels_like": 282.38,
+        "temp_min": 283.35,
+        "temp_max": 283.59,
+        "pressure": 1023,
+        "humidity": 75,
+        "sea_level": 1023,
+        "grnd_level": 954
+      },
+      "visibility": 10000,
+      "wind": {
+        "speed": 4.65,
+        "deg": 271,
+        "gust": 10.87
+      },
+      "clouds": {
+        "all": 23
+      },
+      "dt": 1630608359,
+      "sys": {
+        "type": 2,
+        "id": 2039162,
+        "country": "RO",
+        "sunrise": 1630554065,
+        "sunset": 1630601763
+      },
+      "timezone": 10800,
+      "id": 683843,
+      "name": "Braşov",
+      "cod": 200
+    },
+    {
+      "coord": {
+        "lon": 37.6156,
+        "lat": 55.7522
+      },
+      "weather": [
+        {
+          "id": 800,
+          "main": "Clear",
+          "description": "clear sky",
+          "icon": "01n"
+        }
+      ],
+      "base": "stations",
+      "main": {
+        "temp": 283.05,
+        "feels_like": 281.06,
+        "temp_min": 282.28,
+        "temp_max": 283.79,
+        "pressure": 1007,
+        "humidity": 60,
+        "sea_level": 1007,
+        "grnd_level": 990
+      },
+      "visibility": 10000,
+      "wind": {
+        "speed": 3.93,
+        "deg": 333,
+        "gust": 8.71
+      },
+      "clouds": {
+        "all": 5
+      },
+      "dt": 1630607812,
+      "sys": {
+        "type": 2,
+        "id": 2009195,
+        "country": "RU",
+        "sunrise": 1630550186,
+        "sunset": 1630599749
+      },
+      "timezone": 10800,
+      "id": 524901,
+      "name": "Moscow",
+      "cod": 200
+    },
+    {}
+  ]
+}

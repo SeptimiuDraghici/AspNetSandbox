@@ -456,6 +456,5 @@ $RECYCLE.BIN/
 .vs/AspNetSandBox/DesignTimeBuild/.dtbcache.v2
 *.v2
 *.cache
-*.json
 *.suo
 *.dll
