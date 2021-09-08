@@ -458,3 +458,4 @@ $RECYCLE.BIN/
 *.cache
 *.suo
 *.dll
+AspNetSandBox/AspNetSandBox.xml

@@ -4,12 +4,16 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>C:\Internship\BackEnd\FirstProject\AspNetSandBox\AspNetSandBox\AspNetSandBox.xml</DocumentationFile>
+  </PropertyGroup>
+
   <ItemGroup>
     <Compile Remove="CityCoodrinates.cs" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="..\.editorconfig" Link=".editorconfig" />
+    <Content Include=".editorconfig" />
   </ItemGroup>
 
   <ItemGroup>

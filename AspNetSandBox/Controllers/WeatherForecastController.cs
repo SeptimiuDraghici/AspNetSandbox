@@ -9,12 +9,21 @@ using RestSharp;
 
 namespace AspNetSandBox.Controllers
 {
+    /// <summary>
+    /// Controller that allows us to get weather forecast.
+    /// </summary>
     [ApiController]
     [Route("[controller]")]
     public class WeatherForecastController : ControllerBase
     {
-        private const float KELVIN_CONSTANT = 273.15f;
+        private const float KELVINCONSTANT = 273.15f;
 
+        /// <summary>
+        /// Get weather forecast for 5 days.
+        /// </summary>
+        /// <returns>
+        /// Enumerable of weather forecast objects.
+        /// </returns>
         [HttpGet]
         public IEnumerable<WeatherForecast> Get()
         {
@@ -52,7 +61,7 @@ namespace AspNetSandBox.Controllers
 
         private static int ExtractCelciusTemperatureFromDailyForecast(JToken jsonDailyForecast)
         {
-            return (int)Math.Round((jsonDailyForecast["temp"].Value<float>("day") - KELVIN_CONSTANT));
+            return (int)Math.Round((jsonDailyForecast["temp"].Value<float>("day") - KELVINCONSTANT));
         }
     }
 }
