@@ -30,6 +30,11 @@ namespace AspNetSandBox
             });
         }
 
+        public void ResetData()
+        {
+            bookIdCounter = 1;
+        }
+
         public IEnumerable<Book> GetAllBooks()
         {
             return books;
@@ -42,8 +47,7 @@ namespace AspNetSandBox
 
         public void AddBookToList(Book value)
         {
-            bookIdCounter++;
-            value.Id = bookIdCounter;
+            value.Id = ++bookIdCounter;
             books.Add(value);
         }
 
@@ -52,7 +56,6 @@ namespace AspNetSandBox
             var newTitle = value.Title;
             var newAuthor = value.Author;
             var newLanguage = value.Language;
-            books[id].Id = id;
             if (newTitle != null)
             {
                 books[id].Title = newTitle;
