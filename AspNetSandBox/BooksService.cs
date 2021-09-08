@@ -50,7 +50,15 @@ namespace AspNetSandBox
         /// <returns>Book object.</returns>
         public Book GetBookById(int id)
         {
-            return books.Single(_ => _.Id == id);
+            try
+            {
+                return books.Single(_ => _.Id == id);
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine("Error getting book by given Id!");
+                return null;
+            }
         }
 
         /// <summary>Adds Book object to the List.</summary>
