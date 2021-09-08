@@ -1,46 +1,43 @@
-using AspNetSandBox.Controllers;
 using System;
 using System.IO;
+using AspNetSandBox.Controllers;
 using Xunit;
 
 namespace AspNetSandBox.Tests
 {
+    /// <summary>Tests for getting weather forecast from API.</summary>
     public class WeatherForecastControllerTest
     {
+        /// <summary>Tests weather forecast for tomorrow.</summary>
         [Fact]
         public void ConvertResponseToWeatherForecastTest()
         {
-            //Assume
-
+            // Assume
             string content = LoadJsonFromResource();
             var controller = new WeatherForecastController();
 
-            //Act
-
+            // Act
             var output = controller.ConvertResponseToWeatherForecast(content);
 
-            //Assert
-
+            // Assert
             var weatherForecastForTomorrow = ((WeatherForecast[])output)[0];
             Assert.Equal("Clear", weatherForecastForTomorrow.Summary);
             Assert.Equal(20, weatherForecastForTomorrow.TemperatureC);
             Assert.Equal(new DateTime(2021, 9, 3), weatherForecastForTomorrow.Date);
         }
 
+        /// <summary>Tests weather forecast for the day after tomorrow.</summary>
         [Fact]
         public void ConvertResponseToWeatherForecastAfterTomorrowTest()
         {
-            //Assume
-
+            // Assume
             string content = LoadJsonFromResource();
             var controller = new WeatherForecastController();
 
-            //Act
-
+            // Act
             var output = controller.ConvertResponseToWeatherForecast(content);
 
-            //Assert
-
+            // Assert
             var weatherForecastForDayAfterTomorrow = ((WeatherForecast[])output)[1];
             Assert.Equal("Clear", weatherForecastForDayAfterTomorrow.Summary);
             Assert.Equal(23, weatherForecastForDayAfterTomorrow.TemperatureC);

@@ -9,10 +9,13 @@ using RestSharp;
 
 namespace AspNetSandBox.Controllers
 {
+    /// <summary>Controller for getting city coordinates by city name.</summary>
     [ApiController]
     [Route("[controller]")]
     public class CityCoordinatesController : ControllerBase
     {
+        /// <summary>Gets API call from openweatherAPI to get coordinates.</summary>
+        /// <returns>RestResponse Object.</returns>
         [HttpGet]
         public IEnumerable<CityCoordinates> Get()
         {
@@ -25,6 +28,9 @@ namespace AspNetSandBox.Controllers
             return ConvertResponseToCityCoordinates(response.Content);
         }
 
+        /// <summary>Converts the response from WeatherForecastAPI call to city coordinates.</summary>
+        /// <param name="content">The content.</param>
+        /// <returns>Enumerable of CityCoordinates object.</returns>
         [NonAction]
         public IEnumerable<CityCoordinates> ConvertResponseToCityCoordinates(string content)
         {
@@ -37,7 +43,7 @@ namespace AspNetSandBox.Controllers
                 return new CityCoordinates
                 {
                     Longitude = jsonCityCoordinates.Value<decimal>("lon"),
-                    Latitude = jsonCityCoordinates.Value<decimal>("lat")
+                    Latitude = jsonCityCoordinates.Value<decimal>("lat"),
                 };
             })
             .ToArray();

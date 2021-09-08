@@ -2,16 +2,19 @@
 
 namespace AspNetSandBox.Tests
 {
+    /// <summary>Tests for BookService methods.</summary>
     public class BookServiceTest
     {
         private BooksService bookService;
 
+        /// <summary>Initializes a new instance of the <see cref="BookServiceTest" /> class.</summary>
         public BookServiceTest()
         {
             bookService = new BooksService();
             bookService.ResetData();
         }
 
+        /// <summary>Test that checks if the Id of Book object correctly increments when adding a new book.</summary>
         [Fact]
         public void ShouldCorrectlyIncrementIdOfBookTest()
         {
@@ -36,6 +39,7 @@ namespace AspNetSandBox.Tests
             Assert.Equal("Shining", bookService.GetBookById(3).Title);
         }
 
+        /// <summary>Test that checks if the values of Book object correctly change when updating a book.</summary>
         [Fact]
         public void ShouldUpdateOnlyChangedFieldsOfBookTest()
         {

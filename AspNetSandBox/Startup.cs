@@ -16,20 +16,26 @@ using Microsoft.OpenApi.Models;
 
 namespace AspNetSandBox
 {
+    /// <summary>Class for initial configuration of app.</summary>
     public class Startup
     {
+        /// <summary>Initializes a new instance of the <see cref="Startup" /> class.</summary>
+        /// <param name="configuration">The configuration.</param>
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
         }
 
+        /// <summary>Gets configuration.</summary>
+        /// <value>The configuration.</value>
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
+        /// <summary>Add and configure services in the container to be used for webapp.</summary>
+        /// <param name="services">The services.</param>
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
-			services.AddControllers();
+            services.AddControllers();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "ApiSandbox", Version = "v1" });
@@ -42,7 +48,9 @@ namespace AspNetSandBox
             services.AddSingleton<IBooksService, BooksService>();
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        /// <summary>Configures the HTTP request pipeline.</summary>
+        /// <param name="app">The application.</param>
+        /// <param name="env">The env.</param>
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
@@ -54,7 +62,6 @@ namespace AspNetSandBox
             else
             {
                 app.UseExceptionHandler("/Error");
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
 

@@ -8,17 +8,16 @@ using Microsoft.Extensions.Logging;
 
 namespace AspNetSandBox.Pages
 {
+    /// <summary>Privacy page model.</summary>
     public class PrivacyModel : PageModel
     {
-        private readonly ILogger<PrivacyModel> _logger;
+        private readonly ILogger<PrivacyModel> logger;
 
+        /// <summary>Initializes a new instance of the <see cref="PrivacyModel" /> class.</summary>
+        /// <param name="logger">The logger.</param>
         public PrivacyModel(ILogger<PrivacyModel> logger)
         {
-            _logger = logger;
-        }
-
-        public void OnGet()
-        {
+            this.logger = logger;
         }
     }
 }

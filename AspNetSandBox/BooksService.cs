@@ -5,11 +5,13 @@ using System.Threading.Tasks;
 
 namespace AspNetSandBox
 {
+    /// <summary>BooksService class that contains methods for managing Book objects.</summary>
     public class BooksService : IBooksService
     {
         private static int bookIdCounter = 1;
         private List<Book> books;
 
+        /// <summary>Initializes a new instance of the <see cref="BooksService" /> class.</summary>
         public BooksService()
         {
             books = new List<Book>();
@@ -30,27 +32,40 @@ namespace AspNetSandBox
             });
         }
 
+        /// <summary>Resets the bookIdCounter to be used for testing.</summary>
         public void ResetData()
         {
             bookIdCounter = 1;
         }
 
+        /// <summary>Fetches all instances of Book objects in our List.</summary>
+        /// <returns>Enumerable of Book objects.</returns>
         public IEnumerable<Book> GetAllBooks()
         {
             return books;
         }
 
+        /// <summary>Fetches a certain Book object from the List by its Id.</summary>
+        /// <param name="id">The identifier.</param>
+        /// <returns>Book object.</returns>
         public Book GetBookById(int id)
         {
             return books.Single(_ => _.Id == id);
         }
 
+        /// <summary>Adds Book object to the List.</summary>
+        /// <param name="value">The value.</param>
         public void AddBookToList(Book value)
         {
             value.Id = ++bookIdCounter;
             books.Add(value);
         }
 
+        /// <summary>
+        ///   Updates values of book with given Id.
+        /// </summary>
+        /// <param name="id">The identifier.</param>
+        /// <param name="value">The value.</param>
         public void UpdateBookById(int id, Book value)
         {
             var newTitle = value.Title;
@@ -60,16 +75,20 @@ namespace AspNetSandBox
             {
                 books[id].Title = newTitle;
             }
+
             if (newAuthor != null)
             {
                 books[id].Author = newAuthor;
             }
+
             if (newLanguage != null)
             {
                 books[id].Language = newLanguage;
             }
         }
 
+        /// <summary>Removes a Book object with given Id from List.</summary>
+        /// <param name="id">The identifier.</param>
         public void DeleteBookById(int id)
         {
             books.Remove(GetBookById(id));
