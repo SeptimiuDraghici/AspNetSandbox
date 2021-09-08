@@ -54,9 +54,9 @@ namespace AspNetSandBox
             {
                 return books.Single(_ => _.Id == id);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                Console.WriteLine("Error getting book by given Id!");
+                Console.WriteLine("Error getting book by given Id! Error: " + ex);
                 return null;
             }
         }
