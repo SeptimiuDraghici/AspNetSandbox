@@ -1,6 +1,9 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
+using AspNetSandBox.Data;
 using AspNetSandBox.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace AspNetSandBox.Controllers
 {
@@ -9,55 +12,93 @@ namespace AspNetSandBox.Controllers
     [ApiController]
     public class BooksController : ControllerBase
     {
-        private readonly IBooksService booksService;
+    	private readonly ApplicationDbContext _context;
 
         /// <summary>Initializes a new instance of the <see cref="BooksController" /> class.</summary>
-        /// <param name="booksService">The books service.</param>
-        public BooksController(IBooksService booksService)
+        public BooksController(ApplicationDbContext context)
         {
-            this.booksService = booksService;
+            _context = context;
         }
 
         /// <summary>Get all instances of books.</summary>
         /// <returns>Ennumerable of Book objects.</returns>
         [HttpGet]
-        public IEnumerable<Book> Get()
+        public async Task<IActionResult> Get()
         {
-            return booksService.GetAllBooks();
+            return Ok(await _context.Book.ToListAsync());
         }
 
         /// <summary>Gets the specified book by id.</summary>
         /// <param name="id">The identifier.</param>
         /// <returns>Book object.</returns>
         [HttpGet("{id}")]
-        public Book Get(int id)
+        public async Task<IActionResult> Get(int id)
         {
-            return booksService.GetBookById(id);
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var book = await _context.Book
+                .FirstOrDefaultAsync(m => m.Id == id);
+            if (book == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(book);
         }
 
         /// <summary>Adds books to List of Book objects.</summary>
-        /// <param name="value">The value.</param>
+        /// <param name="book">The book.</param>
         [HttpPost]
-        public void Post([FromBody] Book value)
+        public async Task<IActionResult> Post([FromBody] Book book)
         {
-            booksService.AddBookToList(value);
+            if (ModelState.IsValid)
+            {
+                _context.Add(book);
+                await _context.SaveChangesAsync();
+                return Ok();
+            }
+            return BadRequest();
         }
 
         /// <summary>Update values of book with certain id.</summary>
         /// <param name="id">The identifier.</param>
-        /// <param name="value">The value.</param>
+        /// <param name="book">The book.</param>
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] Book value)
+        public async Task<IActionResult> Put(int id, [FromBody] Book book)
         {
-            booksService.UpdateBookById(id, value);
+            if (id != book.Id)
+            {
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _context.Update(book);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    return NotFound();
+                }
+                return Ok(book);
+            }
+            return BadRequest();
         }
 
         /// <summary>Removes a book from the List of Book objects.</summary>
         /// <param name="id">The identifier.</param>
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public async Task<IActionResult> Delete(int id)
         {
-            booksService.DeleteBookById(id);
+            var book = await _context.Book.FindAsync(id);
+            _context.Book.Remove(book);
+            await _context.SaveChangesAsync();
+            return Ok();
         }
     }
 }

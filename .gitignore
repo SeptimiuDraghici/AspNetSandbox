@@ -459,3 +459,4 @@ $RECYCLE.BIN/
 *.suo
 *.dll
 AspNetSandBox/AspNetSandBox.xml
+*.bak
