@@ -12,7 +12,7 @@ namespace AspNetSandBox.Controllers
     [ApiController]
     public class BooksController : ControllerBase
     {
-    	private readonly ApplicationDbContext _context;
+        private readonly ApplicationDbContext _context;
 
         /// <summary>Initializes a new instance of the <see cref="BooksController" /> class.</summary>
         public BooksController(ApplicationDbContext context)
