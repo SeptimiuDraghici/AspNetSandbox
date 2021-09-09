@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace AspNetSandBox
+namespace AspNetSandBox.Models
 {
     /// <summary>Book model used to create Book objects for our List.</summary>
     public class Book

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using AspNetSandBox.Models;
+using System.Collections.Generic;
 
 namespace AspNetSandBox
 {
