@@ -1,22 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
+using AspNetSandBox.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
-using AspNetSandBox.Data;
-using AspNetSandBox.Models;
 
 namespace AspNetSandBox.Pages.Shared
 {
+    /// <summary>Deletes books.</summary>
     public class DeleteModel : PageModel
     {
-        private readonly AspNetSandBox.Data.ApplicationDbContext _context;
+        private readonly AspNetSandBox.Data.ApplicationDbContext context;
 
         public DeleteModel(AspNetSandBox.Data.ApplicationDbContext context)
         {
-            _context = context;
+            this.context = context;
         }
 
         [BindProperty]
@@ -29,12 +26,13 @@ namespace AspNetSandBox.Pages.Shared
                 return NotFound();
             }
 
-            Book = await _context.Book.FirstOrDefaultAsync(m => m.Id == id);
+            Book = await this.context.Book.FirstOrDefaultAsync(m => m.Id == id);
 
             if (Book == null)
             {
                 return NotFound();
             }
+
             return Page();
         }
 
@@ -45,12 +43,12 @@ namespace AspNetSandBox.Pages.Shared
                 return NotFound();
             }
 
-            Book = await _context.Book.FindAsync(id);
+            Book = await this.context.Book.FindAsync(id);
 
             if (Book != null)
             {
-                _context.Book.Remove(Book);
-                await _context.SaveChangesAsync();
+                this.context.Book.Remove(Book);
+                await this.context.SaveChangesAsync();
             }
 
             return RedirectToPage("./Index");

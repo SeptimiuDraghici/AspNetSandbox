@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>AspNetSandBox.Tests</name>
+    </assembly>
+    <members>
+        <member name="T:AspNetSandBox.Tests.BookServiceTest">
+            <summary>Tests for BookService methods.</summary>
+        </member>
+        <member name="M:AspNetSandBox.Tests.BookServiceTest.#ctor">
+            <summary>Initializes a new instance of the <see cref="T:AspNetSandBox.Tests.BookServiceTest" /> class.</summary>
+        </member>
+        <member name="M:AspNetSandBox.Tests.BookServiceTest.ShouldCorrectlyIncrementIdOfBookTest">
+            <summary>Test that checks if the Id of Book object correctly increments when adding a new book.</summary>
+        </member>
+        <member name="M:AspNetSandBox.Tests.BookServiceTest.ShouldUpdateOnlyChangedFieldsOfBookTest">
+            <summary>Test that checks if the values of Book object correctly change when updating a book.</summary>
+        </member>
+        <member name="T:AspNetSandBox.Tests.CityCoordinatesControllerTest">
+            <summary>Tests for getting city coordinates from city name.</summary>
+        </member>
+        <member name="M:AspNetSandBox.Tests.CityCoordinatesControllerTest.ConvertResponseToCityCoordinatesLondonTest">
+            <summary>Test for getting coordinates of London.</summary>
+        </member>
+        <member name="M:AspNetSandBox.Tests.CityCoordinatesControllerTest.ConvertResponseToCityCoordinatesBrasovTest">
+            <summary>Test for getting coordinates of Brasov.</summary>
+        </member>
+        <member name="M:AspNetSandBox.Tests.CityCoordinatesControllerTest.ConvertResponseToCityCoordinatesMoscowTest">
+            <summary>Test for getting coordinates of Moscow.</summary>
+        </member>
+        <member name="T:AspNetSandBox.Tests.WeatherForecastControllerTest">
+            <summary>Tests for getting weather forecast from API.</summary>
+        </member>
+        <member name="M:AspNetSandBox.Tests.WeatherForecastControllerTest.ConvertResponseToWeatherForecastTest">
+            <summary>Tests weather forecast for tomorrow.</summary>
+        </member>
+        <member name="M:AspNetSandBox.Tests.WeatherForecastControllerTest.ConvertResponseToWeatherForecastAfterTomorrowTest">
+            <summary>Tests weather forecast for the day after tomorrow.</summary>
+        </member>
+    </members>
+</doc>

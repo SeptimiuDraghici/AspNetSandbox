@@ -1,31 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
+using AspNetSandBox.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using AspNetSandBox.Data;
-using AspNetSandBox.Models;
 
 namespace AspNetSandBox.Pages.Shared
 {
+    /// <summary>Creates new books to add to our data.</summary>
     public class CreateModel : PageModel
     {
-        private readonly AspNetSandBox.Data.ApplicationDbContext _context;
+        private readonly AspNetSandBox.Data.ApplicationDbContext context;
 
         public CreateModel(AspNetSandBox.Data.ApplicationDbContext context)
         {
-            _context = context;
+            this.context = context;
         }
+
+        [BindProperty]
+        public Book Book { get; set; }
 
         public IActionResult OnGet()
         {
             return Page();
         }
-
-        [BindProperty]
-        public Book Book { get; set; }
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
@@ -35,8 +31,8 @@ namespace AspNetSandBox.Pages.Shared
                 return Page();
             }
 
-            _context.Book.Add(Book);
-            await _context.SaveChangesAsync();
+            this.context.Book.Add(Book);
+            await this.context.SaveChangesAsync();
 
             return RedirectToPage("./Index");
         }

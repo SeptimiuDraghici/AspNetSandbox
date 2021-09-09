@@ -12,12 +12,12 @@ namespace AspNetSandBox.Controllers
     [ApiController]
     public class BooksController : ControllerBase
     {
-        private readonly ApplicationDbContext _context;
+        private readonly ApplicationDbContext context;
 
         /// <summary>Initializes a new instance of the <see cref="BooksController" /> class.</summary>
         public BooksController(ApplicationDbContext context)
         {
-            _context = context;
+            this.context = context;
         }
 
         /// <summary>Get all instances of books.</summary>
@@ -25,7 +25,7 @@ namespace AspNetSandBox.Controllers
         [HttpGet]
         public async Task<IActionResult> Get()
         {
-            return Ok(await _context.Book.ToListAsync());
+            return Ok(await this.context.Book.ToListAsync());
         }
 
         /// <summary>Gets the specified book by id.</summary>
@@ -39,7 +39,7 @@ namespace AspNetSandBox.Controllers
                 return NotFound();
             }
 
-            var book = await _context.Book
+            var book = await this.context.Book
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (book == null)
             {
@@ -56,10 +56,11 @@ namespace AspNetSandBox.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.Add(book);
-                await _context.SaveChangesAsync();
+                this.context.Add(book);
+                await this.context.SaveChangesAsync();
                 return Ok();
             }
+
             return BadRequest();
         }
 
@@ -78,15 +79,17 @@ namespace AspNetSandBox.Controllers
             {
                 try
                 {
-                    _context.Update(book);
-                    await _context.SaveChangesAsync();
+                    this.context.Update(book);
+                    await this.context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
                     return NotFound();
                 }
+
                 return Ok(book);
             }
+
             return BadRequest();
         }
 
@@ -95,9 +98,9 @@ namespace AspNetSandBox.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
-            var book = await _context.Book.FindAsync(id);
-            _context.Book.Remove(book);
-            await _context.SaveChangesAsync();
+            var book = await this.context.Book.FindAsync(id);
+            this.context.Book.Remove(book);
+            await this.context.SaveChangesAsync();
             return Ok();
         }
     }

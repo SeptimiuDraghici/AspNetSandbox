@@ -6,6 +6,10 @@
     <IsPackable>false</IsPackable>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>C:\Internship\BackEnd\FirstProject\AspNetSandBox\AspNetSandBox.Tests\AspNetSandBox.Tests.xml</DocumentationFile>
+  </PropertyGroup>
+
   <ItemGroup>
     <None Remove="DataFromCityCoordinatesAPI.json" />
     <None Remove="DataFromOpenWeatherAPI.json" />

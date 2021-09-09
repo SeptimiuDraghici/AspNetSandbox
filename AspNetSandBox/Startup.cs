@@ -37,7 +37,7 @@ namespace AspNetSandBox
         /// <param name="services">The services.</param>
         public void ConfigureServices(IServiceCollection services)
         {
-        	services.AddDbContext<ApplicationDbContext>(options =>
+            services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
             services.AddDatabaseDeveloperPageExceptionFilter();
@@ -73,7 +73,6 @@ namespace AspNetSandBox
             else
             {
                 app.UseExceptionHandler("/Home/Error");
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
 
@@ -92,7 +91,7 @@ namespace AspNetSandBox
 
             app.UseEndpoints(endpoints =>
             {
-				endpoints.MapControllerRoute(
+                endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
