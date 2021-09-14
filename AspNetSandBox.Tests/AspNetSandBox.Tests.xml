@@ -4,16 +4,16 @@
         <name>AspNetSandBox.Tests</name>
     </assembly>
     <members>
-        <member name="T:AspNetSandBox.Tests.BookServiceTest">
+        <member name="T:AspNetSandBox.Tests.BooksInMemoryRepositoryTests">
             <summary>Tests for BookService methods.</summary>
         </member>
-        <member name="M:AspNetSandBox.Tests.BookServiceTest.#ctor">
-            <summary>Initializes a new instance of the <see cref="T:AspNetSandBox.Tests.BookServiceTest" /> class.</summary>
+        <member name="M:AspNetSandBox.Tests.BooksInMemoryRepositoryTests.#ctor">
+            <summary>Initializes a new instance of the <see cref="T:AspNetSandBox.Tests.BooksInMemoryRepositoryTests" /> class.</summary>
         </member>
-        <member name="M:AspNetSandBox.Tests.BookServiceTest.ShouldCorrectlyIncrementIdOfBookTest">
+        <member name="M:AspNetSandBox.Tests.BooksInMemoryRepositoryTests.ShouldCorrectlyIncrementIdOfBookTest">
             <summary>Test that checks if the Id of Book object correctly increments when adding a new book.</summary>
         </member>
-        <member name="M:AspNetSandBox.Tests.BookServiceTest.ShouldUpdateOnlyChangedFieldsOfBookTest">
+        <member name="M:AspNetSandBox.Tests.BooksInMemoryRepositoryTests.ShouldUpdateOnlyChangedFieldsOfBookTest">
             <summary>Test that checks if the values of Book object correctly change when updating a book.</summary>
         </member>
         <member name="T:AspNetSandBox.Tests.CityCoordinatesControllerTest">
