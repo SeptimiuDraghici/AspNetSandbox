@@ -1,10 +1,7 @@
-﻿using AspNetSandBox.Data;
-using AspNetSandBox.Models;
-using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
+using AspNetSandBox.Data;
+using AspNetSandBox.Models;
 
 namespace AspNetSandBox.Services
 {
