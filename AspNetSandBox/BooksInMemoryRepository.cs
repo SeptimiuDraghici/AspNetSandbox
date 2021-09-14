@@ -7,15 +7,15 @@ using AspNetSandBox.Models;
 namespace AspNetSandBox
 {
     /// <summary>BooksService class that contains methods for managing Book objects.</summary>
-    public class BooksService : IBooksService
+    public class BooksInMemoryRepository : IBookRepository
     {
         private static int bookIdCounter = 1;
         private List<Book> books;
 
-        /// <summary>Initializes a new instance of the <see cref="BooksService" /> class.</summary>
-        public BooksService()
+        /// <summary>Initializes a new instance of the <see cref="BooksInMemoryRepository" /> class.</summary>
+        public BooksInMemoryRepository()
         {
-            books = new List<Book>();
+            books = new List<Book>();   
             books.Add(new Book
             {
                 Id = 0,

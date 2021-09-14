@@ -4,14 +4,14 @@ using Xunit;
 namespace AspNetSandBox.Tests
 {
     /// <summary>Tests for BookService methods.</summary>
-    public class BookServiceTest
+    public class BooksInMemoryRepositoryTests
     {
-        private BooksService bookService;
+        private BooksInMemoryRepository bookService;
 
-        /// <summary>Initializes a new instance of the <see cref="BookServiceTest" /> class.</summary>
-        public BookServiceTest()
+        /// <summary>Initializes a new instance of the <see cref="BooksInMemoryRepositoryTests" /> class.</summary>
+        public BooksInMemoryRepositoryTests()
         {
-            bookService = new BooksService();
+            bookService = new BooksInMemoryRepository();
             bookService.ResetData();
         }
 

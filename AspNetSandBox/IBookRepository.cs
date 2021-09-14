@@ -3,8 +3,8 @@ using AspNetSandBox.Models;
 
 namespace AspNetSandBox
 {
-    /// <summary>Interface for BooksService class.</summary>
-    public interface IBooksService
+    /// <summary>Interface for BooksRepository class.</summary>
+    public interface IBookRepository
     {
         /// <summary>
         /// Interface for deleting a book.
