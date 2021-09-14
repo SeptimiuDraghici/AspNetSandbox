@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using AspNetSandBox.Models;
 
-namespace AspNetSandBox.Services
+namespace AspNetSandBox
 {
     /// <summary>BooksService class that contains methods for managing Book objects.</summary>
     public class BooksInMemoryRepository : IBookRepository
