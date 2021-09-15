@@ -2,6 +2,7 @@
 using AspNetSandBox.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.SignalR;
 using Microsoft.EntityFrameworkCore;
 
 namespace AspNetSandBox.Pages.Shared
@@ -10,10 +11,12 @@ namespace AspNetSandBox.Pages.Shared
     public class DeleteModel : PageModel
     {
         private readonly AspNetSandBox.Data.ApplicationDbContext context;
+        private readonly Microsoft.AspNetCore.SignalR.IHubContext<MessageHub> hubContext;
 
-        public DeleteModel(AspNetSandBox.Data.ApplicationDbContext context)
+        public DeleteModel(AspNetSandBox.Data.ApplicationDbContext context, IHubContext<MessageHub> hubContext)
         {
             this.context = context;
+            this.hubContext = hubContext;
         }
 
         [BindProperty]
@@ -47,6 +50,7 @@ namespace AspNetSandBox.Pages.Shared
 
             if (Book != null)
             {
+                hubContext.Clients.All.SendAsync("BookDeleted", Book);
                 this.context.Book.Remove(Book);
                 await this.context.SaveChangesAsync();
             }

@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using AspNetSandBox.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.SignalR;
 using Microsoft.EntityFrameworkCore;
 
 namespace AspNetSandBox.Pages.Shared
@@ -11,10 +12,12 @@ namespace AspNetSandBox.Pages.Shared
     public class EditModel : PageModel
     {
         private readonly AspNetSandBox.Data.ApplicationDbContext context;
+        private readonly IHubContext<MessageHub> hubContext;
 
-        public EditModel(AspNetSandBox.Data.ApplicationDbContext context)
+        public EditModel(AspNetSandBox.Data.ApplicationDbContext context, IHubContext<MessageHub> hubContext)
         {
             this.context = context;
+            this.hubContext = hubContext;
         }
 
         [BindProperty]
@@ -45,7 +48,6 @@ namespace AspNetSandBox.Pages.Shared
             {
                 return Page();
             }
-
             this.context.Attach(Book).State = EntityState.Modified;
 
             try
@@ -63,7 +65,7 @@ namespace AspNetSandBox.Pages.Shared
                     throw;
                 }
             }
-
+            hubContext.Clients.All.SendAsync("BookEdited", Book);
             return RedirectToPage("./Index");
         }
 
