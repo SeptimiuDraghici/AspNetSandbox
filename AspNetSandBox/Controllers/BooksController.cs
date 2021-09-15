@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using AspNetSandBox.Data;
 using AspNetSandBox.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SignalR;
 using Microsoft.EntityFrameworkCore;
 
 namespace AspNetSandBox.Controllers
@@ -13,11 +14,13 @@ namespace AspNetSandBox.Controllers
     public class BooksController : ControllerBase
     {
         private readonly IBookRepository repository;
+        private readonly IHubContext<MessageHub> hubContext;
 
         /// <summary>Initializes a new instance of the <see cref="BooksController" /> class.</summary>
-        public BooksController(IBookRepository repository)
+        public BooksController(IBookRepository repository, IHubContext<MessageHub> hubContext)
         {
             this.repository = repository;
+            this.hubContext = hubContext;
         }
 
         /// <summary>Get all instances of books.</summary>
@@ -56,6 +59,7 @@ namespace AspNetSandBox.Controllers
             if (ModelState.IsValid)
             {
                 repository.AddBookToList(book);
+                hubContext.Clients.All.SendAsync("BookCreated", book);
                 return Ok();
             }
 
