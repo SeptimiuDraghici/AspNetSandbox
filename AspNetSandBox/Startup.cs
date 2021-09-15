@@ -53,6 +53,7 @@ namespace AspNetSandBox
             });
             services.AddScoped<IBookRepository, DbBooksRepository>();
             services.AddSignalR();
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
         }
 
         /// <summary>Configures the HTTP request pipeline.</summary>
