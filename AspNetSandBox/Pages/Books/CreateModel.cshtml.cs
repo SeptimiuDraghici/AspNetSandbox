@@ -35,8 +35,8 @@ namespace AspNetSandBox.Pages.Shared
             }
 
             this.context.Book.Add(Book);
-            hubContext.Clients.All.SendAsync("BookCreated", Book);
             await this.context.SaveChangesAsync();
+            hubContext.Clients.All.SendAsync("BookCreated", Book);
 
             return RedirectToPage("./Index");
         }

@@ -3,24 +3,23 @@
 var connection = new signalR.HubConnectionBuilder().withUrl("/messagehub").build();
 
 connection.on("BookCreated", function (book) {
-    console.log("BookCreated: ${JSON.stringify(book)}");
-    $("tbody").append("
-    < tr >
-        < td >
-            Metro 2034
-        </td >
+    console.log(`BookCreated: ${JSON.stringify(book)}`);
+    $("tbody").append(`<tr>
         <td>
-            Dmitry Glukhovsky
+        ${book.title}
         </td>
         <td>
-            Russian
+        ${book.author}
         </td>
         <td>
-            <a href="/Books/Edit?id=2">Edit</a> |
-            <a href="/Books/Details?id=2">Details</a> |
-            <a href="/Books/Delete?id=2">Delete</a>
+        ${book.language}
         </td>
-    </tr > ");
+        <td>
+        <a href="/Books/Edit?id=${book.id}">Edit</a> |
+        <a href="/Books/Details?id=${book.id}">Details</a> |
+        <a href="/Books/Delete?id=${book.id}">Delete</a>
+        </td>
+    </tr>`);
 });
 
 connection.start().then(function () {
