@@ -57,6 +57,7 @@ namespace AspNetSandBox
                 c.IncludeXmlComments(xmlPath, includeControllerXmlComments: true);
             });
             services.AddScoped<IBookRepository, DbBooksRepository>();
+            services.AddSignalR();
         }
 
         /// <summary>Configures the HTTP request pipeline.</summary>
@@ -97,6 +98,7 @@ namespace AspNetSandBox
                     pattern: "{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
                 endpoints.MapControllers();
+                endpoints.MapHub<MessageHub>("/messagehub");
             });
         }
     }
