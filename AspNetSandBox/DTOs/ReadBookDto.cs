@@ -6,10 +6,13 @@ using System.Threading.Tasks;
 namespace AspNetSandBox.DTOs
 {
     /// <summary>
-    /// Creates book without Id and PurchasePrice.
+    /// Reads book without showing PurchasePrice.
     /// </summary>
-    public class CreateBookDto
+    public class ReadBookDto
     {
+        /// <summary>Gets or sets the Id of Book object.</summary>
+        public int Id { get; set; }
+
         /// <summary>Gets or sets the Title of Book object.</summary>
         public string Title { get; set; }
 

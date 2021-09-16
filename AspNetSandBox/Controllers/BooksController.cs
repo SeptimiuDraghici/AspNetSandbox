@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using AspNetSandBox.Data;
 using AspNetSandBox.DTOs;
@@ -28,31 +29,31 @@ namespace AspNetSandBox.Controllers
         }
 
         /// <summary>Get all instances of books.</summary>
-        /// <returns>Ennumerable of Book objects.</returns>
+        /// <returns>Ennumerable of BookDto objects.</returns>
         [HttpGet]
         public IActionResult Get()
         {
-            return Ok(repository.GetAllBooks());
+            IEnumerable<Book> books = repository.GetAllBooks();
+            IEnumerable<ReadBookDto> readBooksDto = mapper.Map<IEnumerable<Book>, IEnumerable<ReadBookDto>>(books);
+            return Ok(readBooksDto);
         }
 
         /// <summary>Gets the specified book by id.</summary>
         /// <param name="id">The identifier.</param>
-        /// <returns>Book object.</returns>
+        /// <returns>BookDto object.</returns>
         [HttpGet("{id}")]
         public IActionResult Get(int id)
         {
-            if (id == null)
+            try
+            {
+                Book book = repository.GetBookById(id);
+                ReadBookDto readBookDto = mapper.Map<ReadBookDto>(book);
+                return Ok(readBookDto);
+            }
+            catch (Exception)
             {
                 return NotFound();
             }
-
-            var book = repository.GetBookById(id);
-            if (book == null)
-            {
-                return NotFound();
-            }
-
-            return Ok(book);
         }
 
         /// <summary>Adds books to List of Book objects.</summary>
@@ -73,7 +74,7 @@ namespace AspNetSandBox.Controllers
 
         /// <summary>Update values of book with certain id.</summary>
         /// <param name="id">The identifier.</param>
-        /// <param name="bookDto">bookDto</param>
+        /// <param name="bookDto">bookDto.</param>
         [HttpPut("{id}")]
         public IActionResult Put(int id, [FromBody] CreateBookDto bookDto)
         {
