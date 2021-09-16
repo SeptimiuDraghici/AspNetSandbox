@@ -5,7 +5,7 @@ var connection = new signalR.HubConnectionBuilder().withUrl("/messagehub").build
 connection.on("BookCreated", function (book) {
     console.log(`BookCreated: ${JSON.stringify(book)}`);
     $("tbody").append(`
-    <tr>
+    <tr id="${book.id}">
         <td>
         ${book.title}
         </td>
@@ -33,7 +33,7 @@ connection.on("BookEdited", function (book) {
     var row = document.getElementById(`${book.id}`);
     row.remove();
     $("tbody").append(`
-    <tr>
+    <tr id="${book.id}">
         <td>
         ${book.title}
         </td>
