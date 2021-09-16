@@ -23,15 +23,15 @@ connection.on("BookCreated", function (book) {
     </tr>`);
 });
 
-connection.on("BookDeleted", function (book) {
-    console.log(`BookDeleted: ${JSON.stringify(book)}`);
-    $(`tr:has(td:contains("${book.title}"))`).remove();
+connection.on("BookDeleted", function (id) {
+    var row = document.getElementById(`${id}`);
+    row.remove();
 });
 
-connection.on("BookEdited", function (book, oldbook) {
-    console.log(`BookEdited: ${JSON.stringify(book)}`);
-    console.log(`OldBook: ${JSON.stringify(oldbook)}`);
-    $(`tr:has(td:contains("${oldbook.title}"))`).remove();
+connection.on("BookEdited", function (book) {
+    console.log(`BookEditedTo: ${JSON.stringify(book)}`);
+    var row = document.getElementById(`${book.id}`);
+    row.remove();
     $("tbody").append(`
     <tr>
         <td>

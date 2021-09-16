@@ -48,6 +48,7 @@ namespace AspNetSandBox.Pages.Shared
             {
                 return Page();
             }
+
             this.context.Attach(Book).State = EntityState.Modified;
 
             try
@@ -65,7 +66,8 @@ namespace AspNetSandBox.Pages.Shared
                     throw;
                 }
             }
-            hubContext.Clients.All.SendAsync("BookEdited", Book);
+
+            await hubContext.Clients.All.SendAsync("BookEdited", Book);
             return RedirectToPage("./Index");
         }
 

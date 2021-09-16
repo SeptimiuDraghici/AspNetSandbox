@@ -50,7 +50,7 @@ namespace AspNetSandBox.Pages.Shared
 
             if (Book != null)
             {
-                hubContext.Clients.All.SendAsync("BookDeleted", Book);
+                await hubContext.Clients.All.SendAsync("BookDeleted", Book.Id);
                 this.context.Book.Remove(Book);
                 await this.context.SaveChangesAsync();
             }
