@@ -73,20 +73,18 @@ namespace AspNetSandBox.Controllers
 
         /// <summary>Update values of book with certain id.</summary>
         /// <param name="id">The identifier.</param>
-        /// <param name="book">The book.</param>
+        /// <param name="bookDto">bookDto</param>
         [HttpPut("{id}")]
-        public IActionResult Put(int id, [FromBody] Book book)
+        public IActionResult Put(int id, [FromBody] CreateBookDto bookDto)
         {
-            if (id != book.Id)
-            {
-                return NotFound();
-            }
-
+            Book book;
             if (ModelState.IsValid)
             {
                 try
                 {
+                    book = mapper.Map<Book>(bookDto);
                     repository.UpdateBookById(id, book);
+                    hubContext.Clients.All.SendAsync("BookEdited", bookDto);
                 }
                 catch (DbUpdateConcurrencyException)
                 {

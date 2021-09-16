@@ -19,5 +19,8 @@ namespace AspNetSandBox.Models
 
         /// <summary>Gets or sets the Language of Book object.</summary>
         public string Language { get; set; }
+
+        /// <summary>Gets or sets the Price of Book object.</summary>
+        public decimal PurchasePrice { get; set; }
     }
 }
