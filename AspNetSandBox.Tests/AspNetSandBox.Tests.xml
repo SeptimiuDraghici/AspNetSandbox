@@ -28,6 +28,12 @@
         <member name="M:AspNetSandBox.Tests.CityCoordinatesControllerTest.ConvertResponseToCityCoordinatesMoscowTest">
             <summary>Test for getting coordinates of Moscow.</summary>
         </member>
+        <member name="T:AspNetSandBox.Tests.StartupTests">
+            <summary>Tests for startup methods</summary>
+        </member>
+        <member name="M:AspNetSandBox.Tests.StartupTests.CheckConversionToEFConnectionString">
+            <summary>Checks the conversion to ef connection string.</summary>
+        </member>
         <member name="T:AspNetSandBox.Tests.WeatherForecastControllerTest">
             <summary>Tests for getting weather forecast from API.</summary>
         </member>

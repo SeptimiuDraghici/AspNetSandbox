@@ -30,6 +30,19 @@ namespace AspNetSandBox
         /// <value>The configuration.</value>
         public IConfiguration Configuration { get; }
 
+        public static string ConvertConnectionString(string connectionString)
+        {
+            Uri uri = new Uri(connectionString);
+            string convertedString = "Database=" + uri.AbsolutePath.TrimStart('/') + "; ";
+            convertedString += "Host=" + uri.Host + "; ";
+            convertedString += "Port=" + uri.Port + "; ";
+            string[] user = uri.UserInfo.Split(':');
+            convertedString += "User Id=" + user[0] + "; ";
+            convertedString += "Password=" + user[1] + "; ";
+            convertedString += "SSL Mode=Require;Trust Server Certificate=true";
+            return convertedString;
+        }
+
         /// <summary>Add and configure services in the container to be used for webapp.</summary>
         /// <param name="services">The services.</param>
         public void ConfigureServices(IServiceCollection services)
@@ -109,9 +122,5 @@ namespace AspNetSandBox
             return Configuration.GetConnectionString("DefaultConnection");
         }
 
-        public static string ConvertConnectionString(string connectionString)
-        {
-            throw new NotImplementedException();
-        }
     }
 }
