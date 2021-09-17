@@ -109,7 +109,7 @@ namespace AspNetSandBox
             return Configuration.GetConnectionString("DefaultConnection");
         }
 
-        private string ConvertConnectionString(string connectionString)
+        public static string ConvertConnectionString(string connectionString)
         {
             throw new NotImplementedException();
         }
