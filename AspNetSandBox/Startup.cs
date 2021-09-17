@@ -119,7 +119,7 @@ namespace AspNetSandBox
                 return ConvertConnectionString(connectionString);
             }
 
-            return Configuration.GetConnectionString("HerokuPostgresConnection");
+            return Configuration.GetConnectionString("DefaultConnection");
         }
 
     }

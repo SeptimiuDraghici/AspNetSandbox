@@ -56,6 +56,7 @@ namespace AspNetSandBox.Migrations
                     Title = table.Column<string>(type: "text", nullable: true),
                     Author = table.Column<string>(type: "text", nullable: true),
                     Language = table.Column<string>(type: "text", nullable: true),
+                    PurchasePrice = table.Column<decimal>(type: "numeric", nullable: false),
                 },
                 constraints: table =>
                 {
