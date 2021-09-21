@@ -36,9 +36,9 @@ namespace AspNetSandBox
             string convertedString = "Database=" + uri.AbsolutePath.TrimStart('/') + "; ";
             convertedString += "Host=" + uri.Host + "; ";
             convertedString += "Port=" + uri.Port + "; ";
-            string[] user = uri.UserInfo.Split(':');
-            convertedString += "User Id=" + user[0] + "; ";
-            convertedString += "Password=" + user[1] + "; ";
+            string[] userInfo = uri.UserInfo.Split(':');
+            convertedString += "User Id=" + userInfo[0] + "; ";
+            convertedString += "Password=" + userInfo[1] + "; ";
             convertedString += "SSL Mode=Require;Trust Server Certificate=true";
             return convertedString;
         }
