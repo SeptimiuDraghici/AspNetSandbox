@@ -96,19 +96,6 @@ namespace AspNetSandBox
             app.UseDefaultFiles(defaultFilesOptions);
             app.UseStaticFiles();
 
-            using (var serviceScope = app.ApplicationServices.CreateScope())
-            {
-                var applicationDbContext = serviceScope.ServiceProvider.GetService<ApplicationDbContext>();
-                if (applicationDbContext.Book.Any())
-                {
-                    Console.WriteLine("The Books are here!");
-                }
-                else
-                {
-                    Console.WriteLine("No Books found!");
-                }
-            }
-
             app.UseRouting();
 
             app.UseAuthentication();
@@ -123,6 +110,7 @@ namespace AspNetSandBox
                 endpoints.MapControllers();
                 endpoints.MapHub<MessageHub>("/messagehub");
             });
+            DataTools.SeedData(app);
         }
 
         private string GetConnectionString()
