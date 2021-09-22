@@ -17,7 +17,7 @@
     },
     "AspNetSandBox": {
       "commandName": "Project",
-      "commandLineArgs": "-v",
+      "commandLineArgs": "-v connectionString=\"Database=SandboxDb; Host=localhost; Port=5432; User Id=postgres; Password=mZqWLH6zBKRh1x6TYtn6; Trust Server Certificate=true\"",
       "launchBrowser": true,
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"

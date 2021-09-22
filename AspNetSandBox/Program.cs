@@ -31,15 +31,15 @@ namespace AspNetSandBox
                            Console.WriteLine("Quick Start Example!");
                        }
                    });
-            if (args.Length == 1)
+            if (args.Length == 1 && HelpRequired(args[0]))
             {
-                Console.WriteLine("There is 1 argument.");
+                Console.WriteLine("Help needed!");
             }
             else if (args.Length > 1)
             {
                 Console.WriteLine($"There are {args.Length} arguments.");
             }
-            else
+            else if (args.Length == 0)
             {
                 Console.WriteLine("There are no arguments.");
             }
@@ -59,6 +59,11 @@ namespace AspNetSandBox
                 {
                     webBuilder.UseStartup<Startup>();
                 });
+
+        private static bool HelpRequired(string argument)
+        {
+            return argument == "-h" || argument == "--help" || argument == "-?";
+        }
 
         public class Options
         {

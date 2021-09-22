@@ -123,6 +123,13 @@ namespace AspNetSandBox
                 return ConvertConnectionString(connectionString);
             }
 
+            var argumentConnectionString = Configuration.GetValue<string>("connectionString");
+            if (argumentConnectionString != null)
+            {
+                Console.WriteLine("Got connection string from arguments!");
+                return argumentConnectionString;
+            }
+
             return Configuration.GetConnectionString("DefaultConnection");
         }
     }
