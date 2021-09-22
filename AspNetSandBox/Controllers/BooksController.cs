@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using AspNetSandBox.DTOs;
+using AspNetSandBox.Hubs;
 using AspNetSandBox.Interfaces;
-using AspNetSandBox.MessageHubFolder;
 using AspNetSandBox.Models;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;

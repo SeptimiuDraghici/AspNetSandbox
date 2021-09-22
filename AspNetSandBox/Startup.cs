@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using AspNetSandBox.Data;
+using AspNetSandBox.Hubs;
 using AspNetSandBox.Interfaces;
 using AspNetSandBox.Services;
 using Microsoft.AspNetCore.Builder;
