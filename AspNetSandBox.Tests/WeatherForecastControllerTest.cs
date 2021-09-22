@@ -1,6 +1,7 @@
 using System;
 using System.IO;
 using AspNetSandBox.Controllers;
+using AspNetSandBox.Models;
 using Xunit;
 
 namespace AspNetSandBox.Tests

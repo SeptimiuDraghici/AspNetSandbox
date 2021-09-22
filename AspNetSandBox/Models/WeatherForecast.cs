@@ -1,6 +1,6 @@
 using System;
 
-namespace AspNetSandBox
+namespace AspNetSandBox.Models
 {
     /// <summary>Model for Weather Forecast Controller to get date, temperature and weather forecast.</summary>
     public class WeatherForecast

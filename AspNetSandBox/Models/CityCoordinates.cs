@@ -1,6 +1,6 @@
 using System;
 
-namespace AspNetSandBox
+namespace AspNetSandBox.Models
 {
     /// <summary>Model for CityController Objects to use for getting coordinates from city name.</summary>
     public class CityCoordinates

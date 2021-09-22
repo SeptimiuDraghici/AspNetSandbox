@@ -29,7 +29,7 @@
             <summary>Test for getting coordinates of Moscow.</summary>
         </member>
         <member name="T:AspNetSandBox.Tests.StartupTests">
-            <summary>Tests for startup methods</summary>
+            <summary>Tests for startup methods.</summary>
         </member>
         <member name="M:AspNetSandBox.Tests.StartupTests.CheckConversionToEFConnectionString">
             <summary>Checks the conversion to ef connection string.</summary>

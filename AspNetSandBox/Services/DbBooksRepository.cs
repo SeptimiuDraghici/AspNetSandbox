@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using AspNetSandBox.Data;
+using AspNetSandBox.Interfaces;
 using AspNetSandBox.Models;
 
 namespace AspNetSandBox.Services

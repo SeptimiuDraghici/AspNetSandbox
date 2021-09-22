@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using AspNetSandBox.Models;
 
-namespace AspNetSandBox
+namespace AspNetSandBox.Interfaces
 {
     /// <summary>Interface for BooksRepository class.</summary>
     public interface IBookRepository
