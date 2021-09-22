@@ -14,9 +14,23 @@ namespace AspNetSandBox
     {
         /// <summary>Defines the entry point of the application.</summary>
         /// <param name="args">The arguments.</param>
-        public static void Main(string[] args)
+        public static int Main(string[] args)
         {
+            if (args.Length == 1)
+            {
+                Console.WriteLine("There is 1 argument.");
+            }
+            else if(args.Length > 1)
+            {
+                Console.WriteLine($"There are {args.Length} arguments.");
+            }
+            else
+            {
+                Console.WriteLine("There are no arguments.");
+            }
+
             CreateHostBuilder(args).Build().Run();
+            return 0;
         }
 
         /// <summary>Creates the host builder.</summary>
