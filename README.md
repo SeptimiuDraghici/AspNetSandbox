@@ -1,6 +1,16 @@
-﻿## How to run in Docker from the commandline
+﻿#Timi sandbox project for back-end course
 
-Build in container
+name     | value
+----     | ----
+language | C#
+database | postgres
+deployed | https://asp-net-sandbox-timi.herokuapp.com
+
+## How to run in Docker from the commandline
+
+Navigate to [AspNetSandbox](AspNetSandBox) directory
+
+### Build in container
 ```
 docker build -t web_timi .
 ```
@@ -21,7 +31,7 @@ to remove container
 docker rm web_container_timi
 ```
 
-## Deploy to heroku
+### Deploy to heroku
 
 1. Create heroku account
 2. Create application
