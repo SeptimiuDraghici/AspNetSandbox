@@ -28,6 +28,18 @@
         <member name="M:AspNetSandBox.Tests.CityCoordinatesControllerTest.ConvertResponseToCityCoordinatesMoscowTest">
             <summary>Test for getting coordinates of Moscow.</summary>
         </member>
+        <member name="T:AspNetSandBox.Tests.FileOperationWithBooksTests">
+            <summary>Test class for File Operations.</summary>
+        </member>
+        <member name="M:AspNetSandBox.Tests.FileOperationWithBooksTests.EnumerateFilesTest">
+            <summary>Test for enumerating all the files.</summary>
+        </member>
+        <member name="M:AspNetSandBox.Tests.FileOperationWithBooksTests.CreateFilesTest">
+            <summary>Test for creating file.</summary>
+        </member>
+        <member name="M:AspNetSandBox.Tests.FileOperationWithBooksTests.ReadFilesTest">
+            <summary>Test for reading a file step by step using filestream.</summary>
+        </member>
         <member name="T:AspNetSandBox.Tests.StartupTests">
             <summary>Tests for startup methods.</summary>
         </member>
