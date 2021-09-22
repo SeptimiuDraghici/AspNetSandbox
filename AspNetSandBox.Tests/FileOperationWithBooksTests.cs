@@ -12,7 +12,7 @@ namespace AspNetSandBox.Tests
         [Fact]
         public void EnumerateFilesTest()
         {
-            System.IO.DirectoryInfo directoryInfo = new System.IO.DirectoryInfo(".");
+            DirectoryInfo directoryInfo = new DirectoryInfo(".");
             var files = directoryInfo.EnumerateFiles();
             foreach (var file in files)
             {
