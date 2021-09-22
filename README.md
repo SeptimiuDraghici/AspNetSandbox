@@ -1,5 +1,7 @@
 ﻿# Timi sandbox project for back-end course
 
+![Project Image](./Screenshot.png)
+
 name     | value
 ----     | ----
 language | C#
