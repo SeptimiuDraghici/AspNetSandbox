@@ -13,6 +13,15 @@ namespace AspNetSandBox
     /// <summary>Main class.</summary>
     public class Program
     {
+        public enum ExitCodes
+        {
+            /// <summary>Exit code for no errors.</summary>
+            NoError = 0,
+
+            /// <summary>Exit code for invalid arguments.</summary>
+            InvalidArguments = 1,
+        }
+
         /// <summary>Defines the entry point of the application.</summary>
         /// <param name="args">The arguments.</param>
         public static int Main(string[] args)
