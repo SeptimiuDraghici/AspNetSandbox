@@ -34,6 +34,7 @@ namespace AspNetSandBox
             if (args.Length == 1 && HelpRequired(args[0]))
             {
                 Console.WriteLine("Help needed!");
+                return 1;
             }
             else if (args.Length > 1)
             {
